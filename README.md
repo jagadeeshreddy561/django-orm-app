@@ -11,20 +11,48 @@ To develop a Django application to store and retrieve data from a database using
 ## DESIGN STEPS
 
 ### STEP 1:
+Clone the problem from github
+
 
 ### STEP 2:
+create a new app
 
 ### STEP 3:
+Enter the code for admin.py and model.py
 
-Write your own steps
+### step4:
+Execute Django admin adn create 20 employees
+
 
 ## PROGRAM
+```
+Model.py
 
-Include your code here
+from django.db import models
+from django.contrib import admin
+class Employee (models.Model):
+    eid=models.CharField(max_length=20,help_text="Employee ID")
+    name=models.CharField(max_length=100)
+    salary=models.IntegerField()
+    age=models.IntegerField()
+    email=models.EmailField()
+
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('eid','name','salary','age','email')
+
+Admin.py
+
+from django.contrib import admin
+from .models import Employee,EmployeeAdmin
+admin.site.register(Employee,EmployeeAdmin)
+```
+
 
 ## OUTPUT
+![orm1](https://user-images.githubusercontent.com/120623104/215335800-f29f480f-1fdb-4cd8-b06b-5cad5e7910b8.png)
 
-Include the screenshot of your admin page.
+
 
 
 ## RESULT
+code is successsfully excuted
